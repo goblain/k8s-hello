@@ -1,3 +1,5 @@
+<h2>Suggested random names :<h2>
+<ul>
 <?php
 
 $n = 9;
@@ -8,4 +10,9 @@ for($i=0; $i < pow($n, $k); $i++) {
 }
 
 
-echo('<h2>Your random assigned name :<h2> '.file_get_contents('http://namegen'));
+for($i=0; $i<10; $i++) {
+  $resp = json_decode(file_get_contents('http://namegen'));
+  echo('<li>Name: '.$resp->name.' - Host: '.$resp->hostname.' - Version: '.$resp->version);
+}
+?>
+</ul>
